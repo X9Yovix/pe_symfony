@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>
+			{% block title %}Modules
+			{% endblock %}
+		</title>
+		{% block stylesheets %}{% endblock %}
+	</head>
+	<body>
+		{% block header %}
+			<header>
+				<h1>Header</h1>
+			</header>
+		{% endblock %}
+		{% block body %}
+			<h1>Body</h1>
+		{% endblock %}
+		{% block footer %}
+			<footer>
+				<h1>Footer</h1>
+			</footer>
+		{% endblock %}
+		{% block javascripts %}{% endblock %}
+	</body>
+</html>

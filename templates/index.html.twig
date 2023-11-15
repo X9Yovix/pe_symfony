@@ -1,0 +1,15 @@
+{% extends "layout.html.twig" %}
+
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{ asset('style/bootstrap.min.css') }}"/>
+{% endblock %}
+
+{% block title %}
+	{{ parent() }}
+	-
+	{{ 'title'|title }}
+{% endblock %}
+
+{% block body %}
+	<h1>Content</h1>
+{% endblock %}

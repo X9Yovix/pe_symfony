@@ -53,4 +53,10 @@ class EtudiantController extends AbstractController
     {
         return $this->render('/etudiant/affectation.html.twig');
     }
+
+    #[Route('/index', name: 'index_fils')]
+    public function indexFils(): Response
+    {
+        return $this->render('/index.html.twig');
+    }
 }
