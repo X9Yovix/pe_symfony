@@ -8,7 +8,30 @@
 	</h4>
 	<ul>
 		{% for i in etudiants %}
-			<li>{{i}}</li>
+			<li>{{i | upper}}</li>
+		{% else %}
+			<li>
+				<b>Aucun etudiant</b>
+			</li>
 		{% endfor %}
-	</ui>
+	</ul>
+	<table border="1">
+		<tr>
+			<th>ID</th>
+			<th>Nom</th>
+			<th>Nombre Heures</th>
+		</tr>
+		{% for i in modules %}
+			<tr>
+				<td>{{i.id}}</td>
+				<td>{{i.nom}}</td>
+				<td>{{i.nbrHeures}}</td>
+			</tr>
+			{% else %}
+			<tr>
+				<td>No modules</td>
+			</tr>
+		{% endfor %}
+		<tr></tr>
+	</table>
 {% endblock %}

@@ -31,6 +31,20 @@ class EtudiantController extends AbstractController
     public function listeEtudiants(): Response
     {
         $etudiants = ['ali', 'said', 'hassan', 'fatima', 'amina'];
-        return $this->render('/etudiant/liste.html.twig', ['etudiants' => $etudiants]);
+        $empty = [];
+        $modules = [
+            [
+                "id" => 1,
+                "nom" => "PHP",
+                "nbrHeures" => 21
+            ],
+            [
+                "id" => 2,
+                "nom" => "Symfony",
+                "nbrHeures" => 42
+            ],
+        ];
+        return $this->render('/etudiant/liste.html.twig', ['etudiants' => $etudiants, 'modules' => $modules]);
+        //return $this->render('/etudiant/liste.html.twig', ['etudiants' => $empty]);
     }
 }
