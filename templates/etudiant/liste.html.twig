@@ -20,18 +20,21 @@
 			<th>ID</th>
 			<th>Nom</th>
 			<th>Nombre Heures</th>
+			<th>Affecter</th>
 		</tr>
 		{% for i in modules %}
 			<tr>
 				<td>{{i.id}}</td>
 				<td>{{i.nom}}</td>
 				<td>{{i.nbrHeures}}</td>
+				<td>
+					<a href="{{path('affectation')}}">Affecter</a>
+				</td>
 			</tr>
-			{% else %}
+		{% else %}
 			<tr>
 				<td>No modules</td>
 			</tr>
 		{% endfor %}
-		<tr></tr>
 	</table>
 {% endblock %}

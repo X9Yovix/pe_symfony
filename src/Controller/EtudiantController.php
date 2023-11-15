@@ -47,4 +47,10 @@ class EtudiantController extends AbstractController
         return $this->render('/etudiant/liste.html.twig', ['etudiants' => $etudiants, 'modules' => $modules]);
         //return $this->render('/etudiant/liste.html.twig', ['etudiants' => $empty]);
     }
+
+    #[Route('/affectation', name: 'affectation')]
+    public function affecter(): Response
+    {
+        return $this->render('/etudiant/affectation.html.twig');
+    }
 }
