@@ -17,7 +17,7 @@
 					{% for i in liste_voitures %}
 						<tr>
 							<td>{{ i.serie }}</td>
-							<td>{{ i.dateMiseCirculation }}</td>
+							<td>{{ i.dateMiseCirculation | date('d-m-Y') }}</td>
 							<td>{{ i.modele }}</td>
 						</tr>
 					{% else %}
