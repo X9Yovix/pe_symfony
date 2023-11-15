@@ -13,12 +13,14 @@
 						<th>Serie</th>
 						<th>Date MC</th>
 						<th>Modele</th>
+						<th>Prix par jour</th>
 					</tr>
 					{% for i in liste_voitures %}
 						<tr>
 							<td>{{ i.serie }}</td>
 							<td>{{ i.dateMiseCirculation | date('d-m-Y') }}</td>
 							<td>{{ i.modele }}</td>
+							<td>{{ i.prixJour }}</td>
 						</tr>
 					{% else %}
 						<tr>
