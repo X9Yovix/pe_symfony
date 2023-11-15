@@ -8,6 +8,24 @@
 		<div class="row">
 			<div class="col-md-12">
 				<h1 class="text-center">List des Voitures</h1>
+				<table class="table w-100">
+					<tr>
+						<th>Serie</th>
+						<th>Date MC</th>
+						<th>Modele</th>
+					</tr>
+					{% for i in liste_voitures %}
+						<tr>
+							<td>{{ i.serie }}</td>
+							<td>{{ i.dateMiseCirculation }}</td>
+							<td>{{ i.modele }}</td>
+						</tr>
+					{% else %}
+						<tr>
+							<th>empty</th>
+						</tr>
+					{% endfor %}
+				</table>
 			</div>
 		</div>
 	</div>
