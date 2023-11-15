@@ -14,12 +14,12 @@ class EtudiantController extends AbstractController
         return new Response("Bonjour mes étudiants");
     }
 
-    /* #[Route('/etudiant/{id}', name: 'affichage_etudiant')]
+    #[Route('/etudiant/{id}', name: 'affichage_etudiant', requirements: ['id' => '\d+'])]
     public function affichageEtudiant($id): Response
     {
         return new Response("Bonjour étudiant ayant l'id : " . $id);
     }
-    */
+
 
     #[Route('/etudiant/{name}', name: 'etudiant_name')]
     public function voirNom($name): Response
