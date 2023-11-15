@@ -13,4 +13,10 @@ class EtudiantController extends AbstractController
     {
         return new Response("Bonjour mes étudiants");
     }
+
+    #[Route('/etudiant/{id}',name:'affichage_etudiant')]
+    public function affichageEtudiant($id): Response
+    {
+        return new Response("Bonjour étudiant ayant l'id : ".$id);
+    }
 }
