@@ -37,4 +37,17 @@ class VoitureController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
+
+    #[Route('/voiture/supprimer/{id}', name: 'voiture_delete')]
+    public function supprimerVoiture($id, EntityManagerInterface $em): Response
+    {
+        $voiture = $em->getRepository(Voiture::class)->find($id);
+        if ($voiture != null) {
+            $em->remove($voiture);
+            $em->flush();
+        } else {
+            throw new \Exception('Voiture non trouvée');
+        }
+        return $this->redirectToRoute('voitures');
+    }
 }

@@ -14,6 +14,7 @@
 						<th>Date MC</th>
 						<th>Modele</th>
 						<th>Prix par jour</th>
+						<th colspa="2">Actions</th>
 					</tr>
 					{% for i in liste_voitures %}
 						<tr>
@@ -21,6 +22,9 @@
 							<td>{{ i.dateMiseCirculation | date('d-m-Y') }}</td>
 							<td>{{ i.modele }}</td>
 							<td>{{ i.prixJour }}</td>
+							<td>
+								<a class="btn btn-danger" href="{{ path('voiture_delete', {'id': i.id}) }}">Supprimer</a>
+							</td>
 						</tr>
 					{% else %}
 						<tr>
