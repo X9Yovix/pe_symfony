@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}List Voiture
+{% endblock %}
+
+{% block body %}
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h1 class="text-center">Ajouter Voiture</h1>
+				<form action="" method="POST" class="text-center">
+					{{form_widget(form)}}<br>
+					<input type="submit" value="Ajouter" class="btn btn-success">
+				</form>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}
