@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\VoitureRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -25,6 +27,14 @@ class Voiture
 
     #[ORM\Column]
     private ?float $prixJour = null;
+
+    #[ORM\OneToMany(mappedBy: 'voiture', targetEntity: Location::class)]
+    private Collection $location;
+
+    public function __construct()
+    {
+        $this->location = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -75,6 +85,36 @@ class Voiture
     public function setPrixJour(float $prixJour): static
     {
         $this->prixJour = $prixJour;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Location>
+     */
+    public function getLocation(): Collection
+    {
+        return $this->location;
+    }
+
+    public function addLocation(Location $location): static
+    {
+        if (!$this->location->contains($location)) {
+            $this->location->add($location);
+            $location->setVoiture($this);
+        }
+
+        return $this;
+    }
+
+    public function removeLocation(Location $location): static
+    {
+        if ($this->location->removeElement($location)) {
+            // set the owning side to null (unless already changed)
+            if ($location->getVoiture() === $this) {
+                $location->setVoiture(null);
+            }
+        }
 
         return $this;
     }
