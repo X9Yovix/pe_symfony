@@ -53,10 +53,18 @@ class VoitureController extends AbstractController
     }
 
     #[Route('/voiture/update/{id}', name: 'voiture_update')]
-    public function majVoiture($id, EntityManagerInterface $em): Response
+    public function majVoiture(Request $request, $id, EntityManagerInterface $em): Response
     {
         $voiture = $em->getRepository(Voiture::class)->find($id);
         $form = $this->createForm(MajVoitureType::class, $voiture);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em->persist($voiture);
+            $em->flush();
+            return $this->redirectToRoute('voitures');
+        }
 
         return $this->render('voiture/maj_voiture.html.twig', [
             'form' => $form->createView(),
