@@ -24,6 +24,7 @@
 							<td>{{ i.prixJour }}</td>
 							<td>
 								<a class="btn btn-danger" href="{{ path('voiture_delete', {'id': i.id}) }}">Supprimer</a>
+								<a class="btn btn-warning" href="{{ path('voiture_update', {'id': i.id}) }}">Mise a jour</a>
 							</td>
 						</tr>
 					{% else %}

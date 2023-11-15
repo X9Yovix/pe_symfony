@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Voiture;
+use App\Form\MajVoitureType;
 use App\Form\VoitureFormType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -49,5 +50,16 @@ class VoitureController extends AbstractController
             throw new \Exception('Voiture non trouvée');
         }
         return $this->redirectToRoute('voitures');
+    }
+
+    #[Route('/voiture/update/{id}', name: 'voiture_update')]
+    public function majVoiture($id, EntityManagerInterface $em): Response
+    {
+        $voiture = $em->getRepository(Voiture::class)->find($id);
+        $form = $this->createForm(MajVoitureType::class, $voiture);
+
+        return $this->render('voiture/maj_voiture.html.twig', [
+            'form' => $form->createView(),
+        ]);
     }
 }
