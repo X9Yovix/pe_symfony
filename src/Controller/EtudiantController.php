@@ -26,4 +26,11 @@ class EtudiantController extends AbstractController
     {
         return $this->render('/etudiant/etudiant.html.twig', ['name' => $name]);
     }
+
+    #[Route('/liste', name: 'liste_etudiants')]
+    public function listeEtudiants(): Response
+    {
+        $etudiants = ['ali', 'said', 'hassan', 'fatima', 'amina'];
+        return $this->render('/etudiant/liste.html.twig', ['etudiants' => $etudiants]);
+    }
 }

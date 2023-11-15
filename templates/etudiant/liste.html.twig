@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Etudiant Controller!
+{% endblock %}
+
+{% block body %}
+	<h4>Liste des etudiants:
+	</h4>
+	<ul>
+		{% for i in etudiants %}
+			<li>{{i}}</li>
+		{% endfor %}
+	</ui>
+{% endblock %}
